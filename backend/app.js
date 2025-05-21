@@ -2,9 +2,15 @@ const express = require('express')
 const app = express()
 
 const connectDB = require('./config/db');
+const cloudinary = require('./config/cloudinary');
 require('dotenv').config();
 
-// connectDB();
+connectDB();
+
+// cloudinary.uploader
+//       .upload("./wallpaperflare.com_wallpaper (1).jpg")
+//       .then(result => console.log(result));
+
 
 app.get('/', (req, res) => {
       res.send('Hello World!')
