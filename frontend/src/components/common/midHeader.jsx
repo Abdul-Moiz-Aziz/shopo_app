@@ -24,12 +24,11 @@ const MidHeader = () => {
         <div className="h-[22px] w-[1px] border-l border-[#EFEFEF]"></div>
         <div className="relative w-full px-4">
           <button className="font-medium flex w-full cursor-pointer items-center justify-between text-xs text-[#797979] capitalize">
-            <span>category</span>
+            <span>all categories</span>
             <span>
               <MdKeyboardArrowDown className="h-5 w-5" />
             </span>
           </button>
-          <div className="fixed top-0 left-0 z-50 hidden h-full w-full"></div>
         </div>
         <div className="h-full">
           <button className="h-full w-[93px] bg-[#FFBB38] text-sm font-medium capitalize">
@@ -42,7 +41,7 @@ const MidHeader = () => {
           <Link to="/wishlist">
             <GoHeart className="h-[22px] w-5" />
           </Link>
-          <span className="absolute -top-2.5 -right-2.5 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-amber-300 text-[9px]">
+          <span className="absolute -top-2.5 -right-2.5 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-[#FFBB35] text-[9px]">
             0
           </span>
         </div>
@@ -50,7 +49,7 @@ const MidHeader = () => {
           <Link to="/cart">
             <HiOutlineShoppingBag className="h-[22px] w-5" />
           </Link>
-          <span className="absolute -top-2.5 -right-2.5 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-amber-300 text-[9px]">
+          <span className="absolute -top-2.5 -right-2.5 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-[#FFBB35] text-[9px]">
             0
           </span>
         </div>
