@@ -12,29 +12,24 @@ const TopHeader = () => {
 
   return (
     <div className="flex h-10 items-center justify-between px-2 text-xs font-medium sm:px-2 md:px-6 xl:px-[75px] border-b border-solid border-gray-300">
-      {/* Left: Account Links */}
       <div className="capitalize">
         <Link to="/login">account</Link>
         <Link to="/track-order" className="ml-6">
-          track order
+          Track order
         </Link>
       </div>
 
-      {/* Right: Contact + Dropdowns (hidden on small, shown on lg+) */}
       <div className="hidden lg:flex items-center gap-6">
-        {/* Phone */}
         <div className="flex items-center">
           <CiMobile3 />
           <span className="xl:ml-2">+00 00000 000 000</span>
         </div>
 
-        {/* Email */}
         <div className="flex items-center">
           <FaRegEnvelope />
           <span className="xl:ml-2">admin@gmail.com</span>
         </div>
 
-        {/* Currency Dropdown */}
         <div className="relative flex items-center">
           <button
             onClick={() => {
@@ -71,7 +66,6 @@ const TopHeader = () => {
           )}
         </div>
 
-        {/* Language Dropdown */}
         <div className="relative flex items-center">
           <button
             onClick={() => {

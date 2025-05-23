@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { MdClose, MdSearch } from "react-icons/md"; // example icons, replace "ic"
+import { MdClose, MdKeyboardArrowDown, MdKeyboardArrowRight, MdSearch } from "react-icons/md";
 import { HiHeart, HiShoppingCart } from "react-icons/hi";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import { GoHeart } from "react-icons/go";
+import { MdOutlineShoppingCart } from "react-icons/md";
+import { HiMiniBars3BottomLeft } from "react-icons/hi2";
+
 
 const ShopDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +26,7 @@ const ShopDrawer = () => {
           className="font-medium text-[#1d1d1d] capitalize"
           aria-label="Open category drawer"
         >
-          category drawer
+          <HiMiniBars3BottomLeft className="h-[22px] w-5" />
         </button>
 
         <span>
@@ -40,7 +43,6 @@ const ShopDrawer = () => {
         </div>
       </div>
 
-      {/* Overlay */}
       {isOpen && (
         <div
           onClick={closeDrawer}
@@ -49,7 +51,6 @@ const ShopDrawer = () => {
         />
       )}
 
-      {/* Drawer panel */}
       <div
         className={`fixed top-0 left-0 z-50 h-screen w-[280px] overflow-x-hidden overflow-y-auto bg-white transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
@@ -66,7 +67,7 @@ const ShopDrawer = () => {
                 </span>
               </div>
               <div className="relative">
-                <HiShoppingCart className="w-5 h-5" />
+                <MdOutlineShoppingCart className="h-[22px] w-5" />
                 <span className="absolute -top-2.5 -right-2.5 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-amber-200 text-[9px]">
                   0
                 </span>
@@ -117,12 +118,13 @@ const ShopDrawer = () => {
                 className="flex w-full items-center justify-between px-5"
               >
                 <div className="flex items-center">
-                  <span>ic</span>
                   <span className="ml-[14px] font-medium text-sm text-[#222222]">
                     name
                   </span>
                 </div>
-                <span>ic</span>
+                <span>
+                  <MdKeyboardArrowRight />
+                </span>
               </a>
             </li>
             {/* Add more categories here */}

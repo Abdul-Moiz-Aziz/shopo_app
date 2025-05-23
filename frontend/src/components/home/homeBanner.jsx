@@ -1,3 +1,5 @@
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const HomeBanner = () => {
   return (
@@ -17,19 +19,23 @@ const HomeBanner = () => {
               </h1>
             </div>
             <div>
-              <a
-                href="/shop"
+              <Link
+                to="/shop"
                 className="text-sm font-medium text-[#2222222] capitalize"
               >
-                <span>shop now</span>
-                <span>ic</span>
+                <div className="flex items-center gap-2">
+                  <span>shop now</span>
+                  <span>
+                    <MdKeyboardArrowRight />
+                  </span>
+                </div>
                 <div className="mt-1 h-[2px] w-20 bg-amber-300"></div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
         <div className="flex h-full flex-1 gap-2 xl:flex-col xl:gap-[30px]">
-          <div className="flex h-[150px] w-1/2 items-center bg-[url('https://shopo.mamunuiux.com/uploads/website-images/Mega-menu-2022-10-27-01-41-46-7345.png')] bg-cover bg-center pl-[30px] md:h-[350px] xl:h-1/2 xl:w-full xl:pl-10">
+          <div className="flex h-[150px] w-1/2 items-center bg-[url('https://shopo.mamunuiux.com/uploads/website-images/Mega-menu-2022-10-27-01-41-46-7345.png')] bg-cover bg-center pl-[30px] md:h-[350px] xl:h-1/2 xl:w-full xl:pl-10 home-banner">
             <div className="flex flex-col">
               <h2 className="mb-[15px] flex h-7 items-center justify-center rounded-2xl bg-white text-[10px] font-medium uppercase shadow-sm md:mb-[22px] md:w-20 md:text-xs">
                 <span>gaming</span>
@@ -43,18 +49,22 @@ const HomeBanner = () => {
                 </h1>
               </div>
               <div>
-                <a
-                  href="/shop"
+                <Link
+                  to="/shop"
                   className="text-sm font-medium text-[#2222222] capitalize"
                 >
-                  <span>shop now</span>
-                  <span>ic</span>
+                  <div className="flex items-center gap-2">
+                    <span>shop now</span>
+                    <span>
+                      <MdKeyboardArrowRight />
+                    </span>
+                  </div>
                   <div className="mt-1 h-[2px] w-20 bg-amber-300"></div>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
-          <div className="flex h-[150px] w-1/2 items-center bg-[url('https://shopo.mamunuiux.com/uploads/website-images/Mega-menu-2022-10-27-01-42-01-1798.png')] bg-cover bg-center pl-[30px] md:h-[350px] xl:h-1/2 xl:w-full xl:pl-10">
+          <div className="flex h-[150px] w-1/2 items-center bg-[url('https://shopo.mamunuiux.com/uploads/website-images/Mega-menu-2022-10-27-01-42-01-1798.png')] bg-cover bg-center pl-[30px] md:h-[350px] xl:h-1/2 xl:w-full xl:pl-10 home-banner">
             <div className="flex flex-col">
               <h2 className="mb-[15px] flex h-7 items-center justify-center rounded-2xl bg-white text-[10px] font-medium uppercase shadow-sm md:mb-[22px] md:w-20 md:text-xs">
                 <span>gaming</span>
@@ -68,14 +78,18 @@ const HomeBanner = () => {
                 </h1>
               </div>
               <div>
-                <a
-                  href="/shop"
+                <Link
+                  to="/shop"
                   className="text-sm font-medium text-[#2222222] capitalize"
                 >
-                  <span>shop now</span>
-                  <span>ic</span>
+                  <div className="flex items-center gap-2">
+                    <span>shop now</span>
+                    <span>
+                      <MdKeyboardArrowRight />
+                    </span>
+                  </div>
                   <div className="mt-1 h-[2px] w-20 bg-amber-300"></div>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
