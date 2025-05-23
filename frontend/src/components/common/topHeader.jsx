@@ -9,114 +9,103 @@ const TopHeader = () => {
   const [currency, setCurrency] = useState("usd");
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [language, setLanguage] = useState("english");
+
   return (
-    <div className="flex h-10 items-center justify-between text-xs font-medium md:px-10 xl:px-[75px] border-b border-gray-200 border-solid">
+    <div className="flex h-10 items-center justify-between px-2 text-xs font-medium sm:px-2 md:px-6 xl:px-[75px] border-b border-solid border-gray-300">
+      {/* Left: Account Links */}
       <div className="capitalize">
         <Link to="/login">account</Link>
-        <Link to="/track-order" className="md:ml-6">
+        <Link to="/track-order" className="ml-6">
           track order
         </Link>
       </div>
-      <div className="flex items-center gap-6">
-        <div className="flex items-center justify-between">
-          <span>
-            <CiMobile3 />
-          </span>
-          <span className="ml-2">+00 00000 000 000</span>
+
+      {/* Right: Contact + Dropdowns (hidden on small, shown on lg+) */}
+      <div className="hidden lg:flex items-center gap-6">
+        {/* Phone */}
+        <div className="flex items-center">
+          <CiMobile3 />
+          <span className="xl:ml-2">+00 00000 000 000</span>
         </div>
-        <div className="flex items-center justify-between">
-          <span>
-            <FaRegEnvelope />
-          </span>
-          <span className="ml-2">admin@gmail.com</span>
+
+        {/* Email */}
+        <div className="flex items-center">
+          <FaRegEnvelope />
+          <span className="xl:ml-2">admin@gmail.com</span>
         </div>
-        <div className="flex items-center justify-between relative">
+
+        {/* Currency Dropdown */}
+        <div className="relative flex items-center">
           <button
-            className="flex items-center justify-between cursor-pointer"
             onClick={() => {
               setIsCurrencyOpen(!isCurrencyOpen);
               setIsLanguageOpen(false);
             }}
+            className="flex items-center cursor-pointer"
+            aria-haspopup="true"
+            aria-expanded={isCurrencyOpen}
           >
-            <span className="uppercase ml-2">{currency}</span>
-            <span className="ml-1 text-sm">
-              <MdKeyboardArrowDown />
-            </span>
+            <span className="uppercase xl:ml-2">{currency}</span>
+            <MdKeyboardArrowDown className="ml-1 text-sm" />
           </button>
           {isCurrencyOpen && (
-            <div className="bg-white absolute top-full overflow-hidden h-auto right-full w-full rounded-lg border border-solid border-gray-200">
+            <div className="absolute top-full right-0 mt-1 bg-white border border-gray-200 rounded-lg w-[120px] z-50">
               <ul>
-                <li
-                  className={`uppercase w-[120px] px-5 h-10 flex items-center cursor-pointer ${
-                    currency === "usd" ? "bg-gray-200" : ""
-                  }`}
-                  onClick={() => {
-                    setCurrency("usd");
-                    setIsCurrencyOpen(false);
-                    setIsLanguageOpen(false);
-                  }}
-                >
-                  <span>usd</span>
-                </li>
-                <li
-                  className={`uppercase w-[120px] h-10 px-5 flex items-center cursor-pointer ${
-                    currency === "eur" ? "bg-gray-200" : ""
-                  }`}
-                  onClick={() => {
-                    setCurrency("eur");
-                    setIsCurrencyOpen(false);
-                    setIsLanguageOpen(false);
-                  }}
-                >
-                  <span>eur</span>
-                </li>
+                {["usd", "eur"].map((cur) => (
+                  <li
+                    key={cur}
+                    className={`uppercase px-5 h-10 flex items-center cursor-pointer ${
+                      currency === cur ? "bg-gray-200" : ""
+                    }`}
+                    onClick={() => {
+                      setCurrency(cur);
+                      setIsCurrencyOpen(false);
+                      setIsLanguageOpen(false);
+                    }}
+                  >
+                    {cur}
+                  </li>
+                ))}
               </ul>
             </div>
           )}
-          <div className="flex items-center justify-between relative">
-            <button
-              className="flex items-center justify-between cursor-pointer"
-              onClick={() => {
-                setIsLanguageOpen(!isLanguageOpen);
-                setIsCurrencyOpen(false);
-              }}
-            >
-              <span className="capitalize ml-2">{language}</span>
-              <span className="ml-1 text-sm">
-                <MdKeyboardArrowDown />
-              </span>
-            </button>
-            {isLanguageOpen && (
-              <div className="bg-white w-[120px] absolute top-full z-50 overflow-hidden h-auto right-full rounded-lg border border-solid border-gray-200">
-                <ul>
+        </div>
+
+        {/* Language Dropdown */}
+        <div className="relative flex items-center">
+          <button
+            onClick={() => {
+              setIsLanguageOpen(!isLanguageOpen);
+              setIsCurrencyOpen(false);
+            }}
+            className="flex items-center cursor-pointer"
+            aria-haspopup="true"
+            aria-expanded={isLanguageOpen}
+          >
+            <span className="capitalize xl:ml-2">{language}</span>
+            <MdKeyboardArrowDown className="ml-1 text-sm" />
+          </button>
+          {isLanguageOpen && (
+            <div className="absolute top-full right-0 mt-1 bg-white border border-gray-200 rounded-lg w-[120px] z-50">
+              <ul>
+                {["english", "french"].map((lang) => (
                   <li
+                    key={lang}
                     className={`capitalize px-5 h-10 flex items-center cursor-pointer ${
-                      language === "english" ? "bg-gray-200" : ""
+                      language === lang ? "bg-gray-200" : ""
                     }`}
                     onClick={() => {
-                      setLanguage("english");
+                      setLanguage(lang);
                       setIsLanguageOpen(false);
                       setIsCurrencyOpen(false);
                     }}
                   >
-                    english
+                    {lang}
                   </li>
-                  <li
-                    className={`capitalize px-5 h-10 flex items-center cursor-pointer ${
-                      language === "french" ? "bg-gray-200" : ""
-                    }`}
-                    onClick={() => {
-                      setLanguage("french");
-                      setIsLanguageOpen(false);
-                      setIsCurrencyOpen(false);
-                    }}
-                  >
-                    frech
-                  </li>
-                </ul>
-              </div>
-            )}
-          </div>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>
