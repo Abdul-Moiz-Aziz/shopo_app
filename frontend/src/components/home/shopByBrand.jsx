@@ -17,7 +17,7 @@ const ShopByBrand = () => {
   ];
   return (
     <div className="w-full">
-      <div className="w-full px-2 md:mb-[60px] md:px-6 xl:px-[75px]">
+      <div className="w-full px-2 mb-[30px] md:mb-[60px] md:px-6 xl:px-[75px]">
         <div>
           <h1 className="text-[30px] text-[#1d1d1d] font-medium">
             Shop by Brand

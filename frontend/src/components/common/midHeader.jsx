@@ -49,7 +49,6 @@ const MidHeader = () => {
           </span>
         </div>
 
-        {/* Cart */}
         <div className="relative">
           <Link to="/cart">
             <HiOutlineShoppingBag className="h-[22px] w-5" />
@@ -59,7 +58,6 @@ const MidHeader = () => {
           </span>
         </div>
 
-        {/* Profile */}
         <div className="relative">
           <Link to="/profile">
             <GoPerson className="h-[22px] w-5" />

@@ -29,7 +29,7 @@ const HomeBanner = () => {
                     <MdKeyboardArrowRight />
                   </span>
                 </div>
-                <div className="mt-1 h-[2px] w-20 bg-amber-300"></div>
+                <div className="mt-1 h-[2px] w-20 bg-[#FFBB35]"></div>
               </Link>
             </div>
           </div>
@@ -59,7 +59,7 @@ const HomeBanner = () => {
                       <MdKeyboardArrowRight />
                     </span>
                   </div>
-                  <div className="mt-1 h-[2px] w-20 bg-amber-300"></div>
+                  <div className="mt-1 h-[2px] w-20 bg-[#FFBB35]"></div>
                 </Link>
               </div>
             </div>

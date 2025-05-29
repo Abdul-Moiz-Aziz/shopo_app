@@ -87,7 +87,7 @@ const BottomHeader = () => {
               </li>
               <li className="flex h-full items-center justify-center px-2">
                 <Link
-                  to="/about-us"
+                  to="/about"
                   className="font-medium text-[#222222] capitalize"
                 >
                   about
@@ -95,7 +95,7 @@ const BottomHeader = () => {
               </li>
               <li className="flex h-full items-center justify-center px-2">
                 <Link
-                  to="/contact-us"
+                  to="/contact"
                   className="font-medium text-[#222222] capitalize"
                 >
                   contact
