@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import MainFooter from "./mainFooter";
-import FooterBottom from "./FooterBottom";
+import FooterBottom from "./footerBottom";
 
 const Footer = () => {
   return (
