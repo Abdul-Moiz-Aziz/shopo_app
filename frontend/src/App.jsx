@@ -1,4 +1,3 @@
-import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
 // Layout components
@@ -16,6 +15,13 @@ import TermsConditions from "./pages/terms-&-conditions/TermsConditions";
 // Context
 import { QuickViewProvider } from "./context/QuickViewContext";
 
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Login from "./pages/auth/login";
+import Register from "./pages/auth/Register";
+import Profile from "./pages/Profile";
+
 function App() {
   return (
     <QuickViewProvider>
@@ -27,6 +33,12 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-condition" element={<TermsConditions />} />
+        <Route path="/auth/login" element={<Login />} />
+        <Route path="/auth/register" element={<Register />} />
+        {/* Protected routes */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/profile" element={<Profile />} />
+        </Route>
       </Routes>
 
       <Footer />

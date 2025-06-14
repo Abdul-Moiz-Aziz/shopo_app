@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import QuickViewWrapper from "../../components/common/quickViewWrapper";
 import AdSection from "../../components/home/adSection";
 import BestProductsSection from "../../components/home/bestProductsSection";
@@ -9,8 +9,20 @@ import OneAdSection from "../../components/home/oneAdSection";
 import PopularCategory from "../../components/home/popularCategory";
 import ShopByBrand from "../../components/home/shopByBrand";
 import TopRatedProducts from "../../components/home/topRatedProducts";
+import axiosInstance from "../../api/axios";
 
 const Home = () => {
+  useEffect(() => {
+    axiosInstance
+      .get("/test-api")
+      .then((response) => {
+        console.log("API is working", response.data);
+      })
+      .catch((error) => {
+        console.error("API error:", error);
+      });
+  }, []);
+
   const [quickViewProduct, setQuickViewProduct] = useState(null);
 
   const openQuickView = (product) => {
