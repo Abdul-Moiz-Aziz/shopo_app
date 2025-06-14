@@ -1,15 +1,20 @@
 import { BiExpand } from "react-icons/bi";
 import { GoHeart } from "react-icons/go";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
-import { IoMdStar, IoMdStarOutline } from "react-icons/io";
+import { IoMdStar } from "react-icons/io";
+import { useQuickView } from "../../context/QuickViewContext";
 
-const MainProductTem = () => {
+const MainProductTem = ({product}) => {
+  const { openQuickView } = useQuickView();
   return (
     <div className="w-full">
       <div className="relative flex h-[445px] flex-col bg-white product-container overflow-hidden group">
         <div className="relative flex h-[300px] items-center justify-center product-image-container">
           <div> image </div>
-          <button className="absolute top-[10%] right-[-20%] flex h-10 w-10 items-center justify-center bg-[#f7f7f7] transition-[background-color,color,right] duration-150 hover:bg-[#FFBB38] hover:text-white rounded-sm product-features-btn right-btn cursor-pointer">
+          <button
+            className="absolute top-[10%] right-[-20%] flex h-10 w-10 items-center justify-center bg-[#f7f7f7] transition-[background-color,color,right] duration-150 hover:bg-[#FFBB38] hover:text-white rounded-sm product-features-btn right-btn cursor-pointer"
+            onClick={() => openQuickView(product)}
+          >
             <BiExpand className="h-6 w-6" />
           </button>
           <button className="absolute top-[27.5%] right-[-20%] flex h-10 w-10 items-center justify-center bg-[#f7f7f7] transition-[background-color,color,right] duration-150 hover:bg-[#FFBB38] hover:text-white rounded-sm product-features-btn second right-btn cursor-pointer">

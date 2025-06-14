@@ -15,7 +15,9 @@ body {
 .product-image-container:hover .product-features-btn.left-btn {
       left: 5%;
 }
-
+.quick-view-container{
+      scrollbar-width: none;
+}
 /* Buttons sliding in from the RIGHT (MainProductTem) */
 .product-features-btn.right-btn {
       transition: right 0.25s ease, background-color 0.15s ease, color 0.15s ease;

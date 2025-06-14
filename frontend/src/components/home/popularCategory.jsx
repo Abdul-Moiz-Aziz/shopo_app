@@ -2,6 +2,16 @@ import MainProductTem from "../common/mainProductTem";
 import { ImArrowRight2 } from "react-icons/im";
 
 const PopularCategory = () => {
+  const product = {
+    id: 1,
+    name: "Xbox Wireless Game Controller",
+    image: "https://via.placeholder.com/300x300",
+    price: "11.11$",
+    oldPrice: "20.00$",
+    description: "Wireless controller with precise controls.",
+    category: "Electronics",
+    brand: "Xbox",
+  };
   return (
     <div className="w-full">
       <div className="w-full px-2 md:mb-[60px] md:px-6 xl:px-[75px]">
@@ -66,9 +76,9 @@ const PopularCategory = () => {
                 </div>
               </div>
             </div>
-            <MainProductTem />
-            <MainProductTem />
-            <MainProductTem />
+            <MainProductTem product={product} />
+            <MainProductTem product={product} />
+            <MainProductTem product={product} />
           </div>
         </div>
       </div>
