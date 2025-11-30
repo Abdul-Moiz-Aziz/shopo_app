@@ -124,7 +124,7 @@ const AdminHeader = ({ setSideBarOpen }) => {
 
                       <div className="px-6 pb-6">
                         <a
-                          href="chat-messages.html"
+                          href=""
                           className="block text-center font-semibold text-green-600 hover:underline"
                         >
                           {" "}
@@ -208,7 +208,7 @@ const AdminHeader = ({ setSideBarOpen }) => {
                             </div>
                             <h4 className="text-lg leading-6 font-normal">
                               <a
-                                href="profile-info.html"
+                                href=""
                                 className="hover:underline"
                               >
                                 My Profile
@@ -225,7 +225,7 @@ const AdminHeader = ({ setSideBarOpen }) => {
                             </div>
                             <h4 className="text-lg leading-6 font-normal">
                               <a
-                                href="chat-messages.html"
+                                href=""
                                 className="hover:underline"
                               >
                                 Message
@@ -242,7 +242,7 @@ const AdminHeader = ({ setSideBarOpen }) => {
                             </div>
                             <h4 className="text-lg leading-6 capitalize font-normal">
                               <a
-                                href="chat-messages.html"
+                                href=""
                                 className="hover:underline"
                               >
                                 settings
@@ -259,7 +259,7 @@ const AdminHeader = ({ setSideBarOpen }) => {
                             </div>
                             <h4 className="text-lg capitalize leading-6 font-normal">
                               <a
-                                href="chat-messages.html"
+                                href=""
                                 className="hover:underline"
                               >
                                 log out
