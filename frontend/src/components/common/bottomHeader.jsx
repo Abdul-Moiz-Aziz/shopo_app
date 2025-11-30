@@ -3,12 +3,16 @@ import {
   MdElectricBolt,
   MdKeyboardArrowRight,
 } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HiBars3CenterLeft } from "react-icons/hi2";
 import { useState } from "react";
+import { useAuth } from "../../context/AuthContext";
+import { handleProtectedRoute } from "../../utils/handleProtectedRoute";
 
 const BottomHeader = () => {
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const { isAuthenticated, setShowLoginPopup } = useAuth();
+  const navigate = useNavigate();
 
   const handleCategoryOpening = () => {
     setIsCategoryOpen(!isCategoryOpen);
@@ -106,13 +110,20 @@ const BottomHeader = () => {
         </div>
 
         <div className="flex items-center gap-2">
-          <Link
-            to="/become-seller"
-            className="flex items-center gap-2 text-sm bg-[#222222] text-white px-5 font-medium py-3 capitalize"
+          <button
+            onClick={() => {
+              handleProtectedRoute(
+                isAuthenticated,
+                setShowLoginPopup,
+                navigate,
+                "/become-seller"
+              );
+            }}
+            className="flex items-center gap-2 text-sm bg-[#222222] text-white px-5 font-medium py-3 capitalize cursor-pointer"
           >
             <span>become seller</span>
             <MdKeyboardArrowRight className="w-5 h-5" />
-          </Link>
+          </button>
         </div>
       </div>
     </div>

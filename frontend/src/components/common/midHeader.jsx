@@ -1,10 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GoHeart } from "react-icons/go";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { GoPerson } from "react-icons/go";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { useAuth } from "../../context/AuthContext";
+import { handleProtectedRoute } from "../../utils/handleProtectedRoute";
 
 const MidHeader = () => {
+  const { isAuthenticated, setShowLoginPopup } = useAuth();
+  const navigate = useNavigate();
+
   return (
     <div className="hidden h-[86px] w-full items-center justify-between px-2 sm:px-2 md:px-6 lg:flex xl:px-[75px]">
       <div>
@@ -41,27 +46,56 @@ const MidHeader = () => {
 
       <div className="relative flex items-center space-x-6 rtl:space-x-reverse">
         <div className="relative">
-          <Link to="/wishlist">
+          <button
+            className="cursor-pointer"
+            onClick={() =>
+              handleProtectedRoute(
+                isAuthenticated,
+                setShowLoginPopup,
+                navigate,
+                "/wishlist"
+              )
+            }
+          >
             <GoHeart className="h-[22px] w-5" />
-          </Link>
+          </button>
           <span className="absolute -top-2.5 -right-2.5 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-[#FFBB35] text-[9px]">
             0
           </span>
         </div>
 
         <div className="relative">
-          <Link to="/cart">
+          <button
+            className="cursor-pointer"
+            onClick={() =>
+              handleProtectedRoute(
+                isAuthenticated,
+                setShowLoginPopup,
+                navigate,
+                "/cart"
+              )
+            }
+          >
             <HiOutlineShoppingBag className="h-[22px] w-5" />
-          </Link>
+          </button>
           <span className="absolute -top-2.5 -right-2.5 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-[#FFBB35] text-[9px]">
             0
           </span>
         </div>
 
         <div className="relative">
-          <Link to="/profile">
+          <button
+            className="cursor-pointer"
+            onClick={() => {
+              if (isAuthenticated) {
+                navigate("/profile");
+              } else {
+                setShowLoginPopup(true);
+              }
+            }}
+          >
             <GoPerson className="h-[22px] w-5" />
-          </Link>
+          </button>
         </div>
       </div>
     </div>

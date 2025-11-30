@@ -15,17 +15,25 @@ import TermsConditions from "./pages/terms-&-conditions/TermsConditions";
 // Context
 import { QuickViewProvider } from "./context/QuickViewContext";
 
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
 import Login from "./pages/auth/login";
 import Register from "./pages/auth/Register";
 import Profile from "./pages/Profile";
+import { useAuth } from "./context/AuthContext";
+import LoginPopup from "./components/common/loginPopup";
 
 function App() {
+  const { isAuthenticated, loading, showLoginPopup, setShowLoginPopup } =
+    useAuth();
+
   return (
     <QuickViewProvider>
       <Header />
+      
+      {!loading && !isAuthenticated && showLoginPopup && (
+        <LoginPopup isOpen={true} onClose={() => setShowLoginPopup(false)} />
+      )}
 
       <Routes>
         <Route path="/" element={<Home />} />

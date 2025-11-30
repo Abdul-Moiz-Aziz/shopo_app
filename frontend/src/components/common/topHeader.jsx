@@ -1,22 +1,49 @@
-import { Link } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { CiMobile3 } from "react-icons/ci";
 import { FaRegEnvelope } from "react-icons/fa";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useState } from "react";
+import { useAuth } from "../../context/AuthContext";
+import { handleProtectedRoute } from "../../utils/handleProtectedRoute";
 
 const TopHeader = () => {
   const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
   const [currency, setCurrency] = useState("usd");
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [language, setLanguage] = useState("english");
+  const { isAuthenticated, setShowLoginPopup } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <div className="flex h-10 items-center justify-between px-2 text-xs font-medium sm:px-2 md:px-6 xl:px-[75px] border-b border-solid border-gray-300">
-      <div className="capitalize">
-        <Link to="/login">account</Link>
-        <Link to="/track-order" className="ml-6">
+      <div>
+        <button
+          className="cursor-pointer capitalize"
+          onClick={() => {
+            handleProtectedRoute(
+              isAuthenticated,
+              setShowLoginPopup,
+              navigate,
+              "/profile"
+            )
+          }}
+        >
+          account
+        </button>
+
+        <button
+          className="cursor-pointer ml-6"
+          onClick={() => {
+            handleProtectedRoute(
+              isAuthenticated,
+              setShowLoginPopup,
+              navigate,
+              "/track-order"
+            )
+          }}
+        >
           Track order
-        </Link>
+        </button>
       </div>
 
       <div className="hidden lg:flex items-center gap-6">

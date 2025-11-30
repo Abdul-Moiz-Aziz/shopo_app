@@ -4,12 +4,14 @@ import { HiHeart, HiShoppingCart } from "react-icons/hi";
 import { HiOutlineShoppingBag, HiMiniBars3BottomLeft } from "react-icons/hi2";
 import { GoHeart } from "react-icons/go";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
+import { handleProtectedRoute } from "../../utils/handleProtectedRoute";
 const ShopDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("categories"); // Default tab
-
+  const { isAuthenticated, setShowLoginPopup } = useAuth();
+  const navigate = useNavigate();
   const openDrawer = () => setIsOpen(true);
   const closeDrawer = () => setIsOpen(false);
 
@@ -30,9 +32,19 @@ const ShopDrawer = () => {
         </span>
 
         <div className="relative">
-          <Link to="/cart">
+          <button
+            className="cursor-pointer"
+            onClick={() =>
+              handleProtectedRoute(
+                isAuthenticated,
+                setShowLoginPopup,
+                navigate,
+                "/cart"
+              )
+            }
+          >
             <HiOutlineShoppingBag className="h-[22px] w-5" />
-          </Link>
+          </button>
           <span className="absolute -top-2.5 -right-2.5 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-[#FFBB35] text-[9px]">
             0
           </span>
@@ -58,14 +70,32 @@ const ShopDrawer = () => {
         <div className="mt-5 mb-4 w-full px-5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
-              <div className="relative">
+              <div className="relative flex justify-center items-center">
+                <button className="cursor-pointer" onClick={() => {
+                  handleProtectedRoute(
+                    isAuthenticated,
+                    setShowLoginPopup,
+                    navigate,
+                    "/wishlist"
+                  )
+                }}>               
                 <GoHeart className="h-[22px] w-5" />
+                </button>
                 <span className="absolute -top-2.5 -right-2.5 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-amber-200 text-[9px]">
                   0
                 </span>
               </div>
-              <div className="relative">
+              <div className="relative flex justify-center items-center">
+                <button className="cursor-pointer" onClick={() => {
+                  handleProtectedRoute(
+                    isAuthenticated,
+                    setShowLoginPopup,
+                    navigate,
+                    "/cart"
+                  )
+                }}>
                 <MdOutlineShoppingCart className="h-[22px] w-5" />
+                </button>
                 <span className="absolute -top-2.5 -right-2.5 flex h-[18px] w-[18px] items-center justify-center rounded-full bg-amber-200 text-[9px]">
                   0
                 </span>
